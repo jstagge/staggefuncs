@@ -1,0 +1,70 @@
+
+
+#### Convert to 3d, save to ncdf
+distr <- "GEV"
+missing <- 1.0E20
+
+nc_name <- paste("WFD_spei_",scale.name,"_",distr,"_CRU_3d_wide_monthly.nc",sep="")
+nc_file <- paste(ResultsPath,nc_name, sep="")
+
+# Define dimensions
+dim_lon <- ncdim_def( "lon", units="degrees_east", vals=Lon.seq, longname="longitude", create_dimvar=TRUE)
+dim_lat <- ncdim_def( "lat", units="degrees_north", vals=rev(Lat.seq), longname="latitude", create_dimvar=TRUE)
+dim_time <- ncdim_def( "time", "days since 1958-01-01", longname="time", WFD.t.seq, unlim=TRUE)
+dim_bnds <- ncdim_def( "bnds", units="", vals=1:2, create_dimvar=FALSE)
+
+nstrings <- length(WFD.monthyear)
+dimnchar <- ncdim_def("nchar", "", 1:7, create_dimvar=FALSE )
+dim_monthyear <- ncdim_def("year_month", "", 1:nstrings, create_dimvar=FALSE )
+
+# Define variables
+spei.var = ncvar_def(name=paste("SPEI_",scale.name, sep=""), units="", dim=list(dim_lon, dim_lat, dim_time), missval=missing, longname=paste("SPEI_",scale.name," values fit using the ",distr," distribution",sep=""), prec="float", compression=4)
+area.var = ncvar_def(name="area", units="meter2", dim=list(dim_lon, dim_lat), missval=missing, longname="Surface area", prec="float", compression=4)
+lat_bnds.var = ncvar_def(name="lat_bnds", units="", dim=list(dim_bnds, dim_lat), missval=NULL, longname="", prec="double", compression=4)
+lon_bnds.var = ncvar_def(name="lon_bnds", units="", dim=list(dim_bnds, dim_lon), missval=NULL, longname="", prec="double", compression=4)
+time_bnds.var = ncvar_def(name="time_bnds", units="", dim=list(dim_bnds, dim_time), missval=NULL, longname="", prec="double", compression=4)
+monthyear.var <- ncvar_def("year_month", "", list(dimnchar, dim_monthyear),prec="char" )
+
+# Define file
+nc = nc_create(nc_file, list(spei.var, area.var, monthyear.var, time_bnds.var, lat_bnds.var, lon_bnds.var))  #
+ncvar_put(nc,spei.var,rot90(SPEI_WFD.monthly))
+ncvar_put(nc,area.var,rot90(area.mat))
+ncvar_put(nc,monthyear.var,WFD.monthyear)
+ncvar_put(nc,time_bnds.var,t(WFD.t.bnds ))
+ncvar_put(nc,lat_bnds.var,t(Lat.bnds ))
+ncvar_put(nc,lon_bnds.var,t(Lon.bnds ))
+
+# Add location attributes
+ncatt_put(nc, "lon", "standard_name", "longitude", prec="char" )
+ncatt_put(nc, "lon", "axis", "X", prec="char" )
+ncatt_put(nc, "lon", "bounds", "lon_bnds", prec="char" )
+
+ncatt_put(nc, "lat", "standard_name", "latitude", prec="char" )
+ncatt_put(nc, "lat", "axis", "Y", prec="char" )
+ncatt_put(nc, "lat", "bounds", "lat_bnds", prec="char" )
+
+# Add time attributes
+ncatt_put(nc, "time", "standard_name", "time", prec="char" )
+ncatt_put(nc, "time", "axis", "T", prec="char" )
+ncatt_put(nc, "time", "bounds", "time_bnds", prec="char" )
+
+# Add variable attributes
+ncatt_put(nc, paste("SPEI_",scale.name, sep=""), "valid_range", matrix(c(-3,3),2,1), prec="float" )
+
+# Add global attributes
+
+ncatt_put(nc, 0, "Title", paste("SPEI_",scale.name," using the ",distr, " distribution", sep=""))
+ncatt_put(nc, 0, "Note1", "Applied to Watch Forcing Data (WFD), CRU Bias Correction")
+ncatt_put(nc, 0, "Note2", "Genuine land points from CRU grid only")	
+ncatt_put(nc, 0, "Note3", paste("Accumulation period of",scale,"days assumed to approximate the",scale.name,"month period"))			
+cur_time = Sys.time()
+ncatt_put(nc, 0, "FileOrigins", paste("File", nc_name, "generated", format(Sys.time(), "%Y%m%d_%H%M%S"),
+                                         "on host", Sys.info()[4]))
+ncatt_put(nc, 0, "Institution", "University of Oslo, Norway")	
+ncatt_put(nc, 0, "Contact1", "j.h.stagge@geo.uio.no")	
+ncatt_put(nc, 0, "Contact2", "l.m.tallaksen@geo.uio.no")	
+ncatt_put(nc, 0, "Conventions", "CF-1.6")
+nc_close(nc)
+
+
+
