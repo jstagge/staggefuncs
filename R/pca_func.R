@@ -1,18 +1,15 @@
-# *------------------------------------------------------------------
-# | FUNCTION NAME: pca_calc
-# | FILE NAME: pca_func.R
-# | DATE: 
-# | CREATED BY:  Jim Stagge         
-# *------------------------------------------------------------------
-# | Parameter:
-# |     In:       data - a matrix with input data
-# |
-# |     Out:      pca_list -  Output list, with loadings, center, scaling, and 
-# |					importance.
-# | 
-# |     Desc:      Performs Principal Component Analysis (PCA) with centering and scaling
-# |                
-# *------------------------------------------------------------------
+#' PCA calculation with centering and scaling
+#'
+#' Performs Principal Component Analysis (PCA) with centering and scaling
+#'
+#' @param data a matrix with input data
+#'
+#' @return pca_list Output list, with loadings, center, scaling, and importance.
+#'
+#' @examples
+#' pca_calc()
+#'
+#' @export
 
 pca_calc <- function(data) {
 
@@ -43,22 +40,19 @@ return(pca_list)
 }
 
 
-# *------------------------------------------------------------------
-# | FUNCTION NAME: pca_reconstruct
-# | FILE NAME: pca_func.R
-# | DATE: 
-# | CREATED BY:  Jim Stagge         
-# *------------------------------------------------------------------
-# | Parameter:
-# |     In:       data - a matrix with input data
-# |					pca_fit  -  a PCA fit from the function pca_calc
-# |
-# |     Out:      x -  A time series of PCA scores.
-# | 
-# |     Desc:      Calculates Principal Component Analysis (PCA) scores
-# |					from a loading.
-# |                
-# *------------------------------------------------------------------
+#' PCA reconstruction using loading
+#'
+#' Calculates Principal Component Analysis (PCA) scores from a loading matrix and new data.
+#'
+#' @param data a matrix with input data
+#' @param pca_fit a PCA object from the function pca_calc
+#'
+#' @return x A time series of PCA scores.
+#'
+#' @examples
+#' pca_reconstruct()
+#'
+#' @export
 
 pca_reconstruct <- function (data, pca_fit) {
 ### Extract needed variables
