@@ -1,20 +1,16 @@
-# *------------------------------------------------------------------
-# | FUNCTION NAME: capwords
-# | FILE NAME: capwords.R
-# | DATE: 
-# | CREATED BY:  Jim Stagge         
-# *------------------------------------------------------------------
-# | Parameter:
-# |     In:       s - character string to be capitalized 
-# |               strict -  TRUE forces everything to 1st letter capital, even all caps words
-# |							FALSE allows for things like acronyms to remain all caps
-# |     Out:      s_cap -  Original string with first letter capitalization
-# | 
-# |     Desc:      This function capitalizes the first letter of each word.
-# |                
-# *------------------------------------------------------------------
-
-### Copied from https://stat.ethz.ch/R-manual/R-devel/library/base/html/chartr.html
+#' Capitalize first letter
+#'
+#' Capitalizes first letter of a string. Copied from https://stat.ethz.ch/R-manual/R-devel/library/base/html/chartr.html
+#'
+#' @param s character string to be capitalized 
+#' @param strict TRUE forces everything to 1st letter capital; FALSE allows for things like acronyms to remain all caps; Defaults to TRUE.
+#'
+#' @return s_cap Original string with first letter capitalization
+#'
+#' @examples
+#' plot_crayons()
+#'
+#' @export
 
 capwords <- function(s, strict = FALSE) {
     cap <- function(s) paste(toupper(substring(s, 1, 1)),
