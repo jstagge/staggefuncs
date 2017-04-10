@@ -34,9 +34,9 @@ read_table_wheaders <- function(doc, sep="\t", na.string) {
     meta_rows_n <- max(meta_rows, na.rm=TRUE)
     
     if (missing(na.string)){
-    	final_data <- read.table(doc, header=TRUE, sep="\t", skip=meta_rows_n, comment.char = "#")
+    	final_data <- read.table(doc, header=TRUE, sep=sep, skip=meta_rows_n, comment.char = "#")
     } else {
-    	final_data <- read.table(doc, header=TRUE, sep="\t", na.strings = na.string, skip=meta_rows_n, comment.char = "#")
+    	final_data <- read.table(doc, header=TRUE, sep=sep, na.strings = na.string, skip=meta_rows_n, comment.char = "#")
     }
 
 	return(final_data)
