@@ -1,19 +1,16 @@
-# *------------------------------------------------------------------
-# | FUNCTION NAME: usgs_daily_dl
-# | FILE NAME: usgs_daily_dl.R
-# | DATE: 
-# | CREATED BY:  Jim Stagge         
-# *------------------------------------------------------------------
-# | Parameter:
-# |     In:        site_id - USGS site id
-# |                param_cv - USGS parameter id
-# |                dest_folder - location to save file
-# |                
-# |     Out:       dl_result - a character stating "Success" or "Failure"
-# | 
-# |     Desc:      Use the dataRetrieval package to download daily stream
-# |                flows.
-# *------------------------------------------------------------------
+#' Download daily data from USGS
+#'
+#' Use the dataRetrieval package to download daily stream flows.
+#'
+#' @param site_id USGS site id
+#' @param param_cv USGS parameter id
+#' @param dest_folder location to save file
+#'
+#' @return dl_result a character stating "Success" or "Failure"
+#'
+#'
+#' @export
+
 
 
 usgs_daily_dl <- function(site_id, parameterCd = "00060", dest_folder = getwd()) {

@@ -1,19 +1,16 @@
-# *------------------------------------------------------------------
-# | FUNCTION NAME: usgs_wateryear
-# | FILE NAME: usgs_wateryear.R
-# | DATE: 
-# | CREATED BY:  Jim Stagge         
-# *------------------------------------------------------------------
-# | Parameter:
-# |     In:        year - year of observation
-# |                month - month of observation
-# |                first_month  - first month of water year, assumes USGS default as Oct 1
-# |                
-# |     Out:       water_year - water year of observation
-# | 
-# |     Desc:      Reads in a year and month and calculates water year.
-# |                
-# *------------------------------------------------------------------
+#' Determine water year
+#'
+#' Reads in a year and month and calculates water year.
+#'
+#' @param year USGS year of observation
+#' @param month USGS month of observation
+#' @param first_month first month of water year, assumes USGS default as Oct 1
+#'
+#' @return water_year water year of observation
+#'
+#'
+#' @export
+
 
 usgs_wateryear <- function(year, month, first_month=10) {
 	water_year <- year
@@ -23,22 +20,20 @@ usgs_wateryear <- function(year, month, first_month=10) {
 
 
 
-# *------------------------------------------------------------------
-# | FUNCTION NAME: usgs_wateryear_inverse
-# | FILE NAME: usgs_wateryear.R
-# | DATE: 
-# | CREATED BY:  Jim Stagge         
-# *------------------------------------------------------------------
-# | Parameter:
-# |     In:        water_year - water year of observation
-# |                month - month of observation
-# |                first_month  - first month of water year, assumes USGS default as Oct 1
-# |                
-# |     Out:       year - year of observation
-# | 
-# |     Desc:      Reads in a water year and month and calculates the year.
-# |                
-# *------------------------------------------------------------------
+#' Inverse of water year calculation
+#'
+#' Reads in a water year and month and calculates the year.
+#'
+#' @param water_year water year of observation
+#' @param month USGS month of observation
+#' @param first_month first month of water year, assumes USGS default as Oct 1
+#'
+#' @return year year of observation
+#'
+#'
+#' @export
+
+
 
 usgs_wateryear_inverse <- function(water_year, month, first_month=10) {
 	year <- water_year

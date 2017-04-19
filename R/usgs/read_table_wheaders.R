@@ -1,20 +1,16 @@
-# *------------------------------------------------------------------
-# | FUNCTION NAME: read_table_wheaders
-# | FILE NAME: read_table_wheaders.R
-# | DATE: 
-# | CREATED BY:  Jim Stagge         
-# *------------------------------------------------------------------
-# | Parameter:
-# |     In:        doc - document containing data
-# |                sep - optional separator default is tab
-# |                na.string - optional na.string
-# |                
-# |     Out:       final_data - resulting data table
-# | 
-# |     Desc:      Reads in a data file with a large header commented
-# \                with #'s.  fread command did not work for large headers
-# |                
-# *------------------------------------------------------------------
+#' Read table with headers
+#'
+#' Reads in a data file with a large header commented with #'s.  fread command did not work for large headers
+#'
+#' @param doc document containing data
+#' @param sep optional separator. Default is tab
+#' @param na.string optional na.string
+#'
+#' @return final_data resulting data table
+#'
+#'
+#' @export
+
 
 read_table_wheaders <- function(doc, sep="\t", na.string) {
 	### Requires the readr package

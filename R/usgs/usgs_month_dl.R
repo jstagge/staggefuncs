@@ -1,21 +1,15 @@
-# *------------------------------------------------------------------
-# | FUNCTION NAME: usgs_month_dl
-# | FILE NAME: usgs_month_dl.R
-# | DATE: 
-# | CREATED BY:  Jim Stagge         
-# *------------------------------------------------------------------
-# | Parameter:
-# |     In:        site_id - USGS site id
-# |                param_cv - USGS parameter id
-# |                destination_folder - location to save file
-# |                
-# |     Out:       dl_result - a character stating "Success" or "Failure"
-# | 
-# |     Desc:      The current dataRetrieval package does not allow for download
-# |                of monthly stats.  This function downloads this file
-# |                for read-in later.
-# *------------------------------------------------------------------
-
+#' Download monthly data from USGS
+#'
+#' The current dataRetrieval package does not allow for download of monthly stats.  This function downloads this file for read-in later.
+#'
+#' @param site_id USGS site id
+#' @param param_cv USGS parameter id
+#' @param destination_folder location to save file
+#'
+#' @return dl_result a character stating "Success" or "Failure"
+#'
+#'
+#' @export
 
 usgs_month_dl <- function(site_id, parameterCd = "00060", destination_folder = getwd()) {
 	### Create url for the data location at the USGS website

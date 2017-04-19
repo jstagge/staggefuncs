@@ -1,21 +1,16 @@
-# *------------------------------------------------------------------
-# | FUNCTION NAME: usgs_readin
-# | FILE NAME: usgs_readin.R
-# | DATE: 
-# | CREATED BY:  Jim Stagge         
-# *------------------------------------------------------------------
-# | Parameter:
-# |     In:        site_id - USGS site id
-# |                param_cv - USGS parameter id
-# |                destination_folder - location of USGS file
-# |                time_param - time accumulation
-# |                
-# |     Out:       usgs_data - a dataframe from USGS data
-# | 
-# |     Desc:      Reads in local USGS data file using dataRetreival
-# |                package.
-# |                
-# *------------------------------------------------------------------
+#' Read in saved data from USGS
+#'
+#' Reads in local USGS data file using dataRetreival package.
+#'
+#' @param site_id USGS site id
+#' @param param_cv USGS parameter id
+#' @param destination_folder location to save file
+#' @param time_param time accumulation 
+#'
+#' @return dl_result a character stating "Success" or "Failure"
+#'
+#'
+#' @export
 
 
 usgs_readin <- function(site_id, param_cd="00060", time_param="daily", destination_folder = getwd()) {
