@@ -14,7 +14,17 @@
 # |                
 # *------------------------------------------------------------------
 
-
+#' Goodness of Fit for a time series
+#'
+#' Calculates a number of goodness of fit statatistics for a time series. These include, Mean Error (ME), Mean Absolute Error (MAE), Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Nash-Sutcliffe Efficiency (NSE), Pearson Correlation, and Spearman Correlation.
+#'
+#' @param pred vector of predicted values
+#' @param obs vector of observed values 
+#'
+#' @return gof_results list of goodness of fit statistics
+#'
+#'
+#' @export
 gof_ts <- function(pred, obs) {
 	### Remove NAs from analysis
 	complete_test <- complete.cases(obs) & complete.cases(pred)

@@ -1,0 +1,9 @@
+
+require("devtools")
+require("roxygen2")
+
+### To create documentation
+document()
+
+
+

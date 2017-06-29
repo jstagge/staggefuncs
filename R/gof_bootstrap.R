@@ -1,30 +1,15 @@
-# *------------------------------------------------------------------
-# | FUNCTION NAME: gof_bootstrap
-# | FILE NAME: gof_bootstraps.R
-# | DATE: 
-# | CREATED BY:  Jim Stagge         
-# *------------------------------------------------------------------
-# | Parameter:
-# |     In:        fit - a fitdistrplus object
-# |                n_sims - number of replications, defaults to 5e4 (50,000)
-# |                parallel - TRUE or FALSE option to run in parallel
-# |                
-# |     Out:       gof_result - a list with KS, AD, and CVM test statistic and p-value
-# | 
-# |     Desc:      This function was created because published p-values for the 
-# |					Kolmogorov-Smirnov, Anderson-Darling and Cramer-von-Mises tests 
-# |					are not valid if the distribution is estimated from the data.  
-# |				   This function uses bootstrapping to obtain the p-value based on
-# |					the distribution and parameters.
-# |                
-# *------------------------------------------------------------------
-
-
-
-#########################
-###  This is the primary function to run
-#########################
-
+#' Goodness of Fit for Univariate Distributions with Bootstrapping
+#'
+#' Calculates a number of goodness of fit statatistics for a chosen univariate distribution. This function was created because published p-values for the Kolmogorov-Smirnov, Anderson-Darling and Cramer-von-Mises tests are not valid if the distribution is estimated from the data. This function uses bootstrapping to obtain the p-value based on	the distribution and parameters.
+#'
+#' @param fit fitdistrplus object
+#' @param n_sims number of replications, defaults to 5e4 (50,000)
+#' @param parallel TRUE or FALSE option to run in parallel
+#'
+#' @return gof_result list with KS, AD, and CVM test statistic and p-value
+#'
+#'
+#' @export
 gof_bootstrap <- function(fit, n_sims=5e4, parallel=FALSE) {
 	### Find the name of the distribution and create functions for this distribution
 	distr <- fit$distname
@@ -81,10 +66,18 @@ gof_bootstrap <- function(fit, n_sims=5e4, parallel=FALSE) {
 
 
 
-#########################
-###  This is the function to calculate KS, AD, and CVM.  Can be used separately also
-#########################
-
+#' Goodness of Fit Statistics for Univariate Distributions with Bootstrapping
+#'
+#' Calculates goodness of fit statatistics (K-S, AD, and CVM) for a chosen univariate distribution. 
+#'
+#' @param x vector of observations
+#' @param dist_name name of univariate distribution
+#' @param param_list list with parameter estimates for the univariate probability distribution 
+#'
+#' @return gof_results list with KS, AD, and CVM test statistic
+#'
+#'
+#' @export
 gof_stats <- function(x, dist_name, param_list) {
 	require(goftest)
 	gof_results <- list()
@@ -122,6 +115,19 @@ gof_stats <- function(x, dist_name, param_list) {
 ###  This is the function that generates random samples and returns the
 ###  goodness of fit test statistics
 #########################
+#' Goodness of Fit replicates
+#'
+#' Wrapper to generate random samples from a probability distribution and run gof_stats
+#'
+#' @param i replication index
+#' @param param_replicate parameters for probability distribution function
+#' @param n number of observations to use in each replication
+#' @param dist_name name of univariate distribution
+#'
+#' @return gof_results list with KS, AD, and CVM test statistic 
+#'
+#'
+#' @export
 gof_replicate <- function(i, param_replicate, n, distr_name) {
 	rand_distr <- match.fun(paste("r",distr_name,sep=""))
 	

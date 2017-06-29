@@ -181,21 +181,25 @@ theme_pub_map <- function(base_size = 10) {
   )
 }
 
+   axis.text.x =        element_text(size = base_size * 0.8, lineheight = 0.9, vjust = 1,colour = "black", margin=unit(0.1, "cm")),
+    axis.text.y =        element_text(size = base_size * 0.8, lineheight = 0.9, hjust = 1,colour = "black", margin=unit(0.1, "cm")),
 
+element_text(margin=margin(5,5,10,5,"pt")
+
+element_text(size = base_size * 0.8, lineheight = 0.9, vjust = 1,colour = "black", margin=margin(0.1,0.1,0.1,0.1,"cm")),
 
 theme_pub_map_grey <- function(base_size = 10) {
   theme( 
     axis.line =          element_line(),
-    axis.text.x =        element_text(size = base_size * 0.8, lineheight = 0.9, vjust = 1,colour = "black"),
-    axis.text.y =        element_text(size = base_size * 0.8, lineheight = 0.9, hjust = 1,colour = "black"),
+    axis.text.x =        element_text(size = base_size * 0.8, lineheight = 0.9, vjust = 1,colour = "black", margin=margin(0.1,0.1,0.1,0.1,"cm")),
+    axis.text.y =        element_text(size = base_size * 0.8, lineheight = 0.9, hjust = 1,colour = "black", margin=margin(0.1,0.1,0.1,0.1,"cm")),
     axis.ticks =         element_line(colour = "black", size = 0.2),
     axis.title.x =       element_blank(),
     axis.title.y =       element_blank(),
     axis.ticks.length =  unit(0.15, "cm"),
-    axis.ticks.margin =  unit(0.1, "cm"),
 
     legend.background =  element_rect(colour = NA),
-    legend.margin =      unit(0.2, "cm"),
+    legend.margin =      margin(0.2,0.2,0.2,0.2, unit="cm"),
     legend.key =         element_rect(colour = NA),
     legend.key.size =    unit(1.2, "lines"),
     legend.key.height =  NULL,
