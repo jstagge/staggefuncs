@@ -23,4 +23,3 @@ few palette is based on qualitative color palettes from Stephen Few, http://www.
 ptol palette is based on qualitative color palettes from Paul Tol, https://personal.sron.nl/~pault/colourschemes.pdf.
 d3 palette is based on d3 standard. nature is based on Nature Publishing Group
 }
-

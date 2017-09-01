@@ -19,4 +19,3 @@ dl_result a character stating "Success" or "Failure"
 \description{
 The current dataRetrieval package does not allow for download of monthly stats.  This function downloads this file for read-in later.
 }
-

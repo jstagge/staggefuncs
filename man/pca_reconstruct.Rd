@@ -21,4 +21,3 @@ Calculates Principal Component Analysis (PCA) scores from a loading matrix and n
 pca_reconstruct()
 
 }
-

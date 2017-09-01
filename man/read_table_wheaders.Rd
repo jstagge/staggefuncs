@@ -19,4 +19,3 @@ final_data resulting data table
 \description{
 Reads in a data file with a large header commented with #'s.  fread command did not work for large headers
 }
-

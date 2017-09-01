@@ -21,4 +21,3 @@ Capitalizes first letter of a string. Copied from https://stat.ethz.ch/R-manual/
 cap_first()
 
 }
-

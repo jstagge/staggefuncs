@@ -19,4 +19,3 @@ Performs Principal Component Analysis (PCA) with centering and scaling
 pca_calc()
 
 }
-

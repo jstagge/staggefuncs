@@ -17,4 +17,3 @@ gof_results list of goodness of fit statistics
 \description{
 Calculates a number of goodness of fit statatistics for a time series. These include, Mean Error (ME), Mean Absolute Error (MAE), Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Nash-Sutcliffe Efficiency (NSE), Pearson Correlation, and Spearman Correlation.
 }
-

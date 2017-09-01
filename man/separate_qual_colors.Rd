@@ -17,4 +17,3 @@ color_separated vector of colors separated by HCL
 \description{
 Orders qualitative colors by finding the largest difference between each color based on HCL
 }
-

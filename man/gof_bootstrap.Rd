@@ -19,4 +19,3 @@ gof_result list with KS, AD, and CVM test statistic and p-value
 \description{
 Calculates a number of goodness of fit statatistics for a chosen univariate distribution. This function was created because published p-values for the Kolmogorov-Smirnov, Anderson-Darling and Cramer-von-Mises tests are not valid if the distribution is estimated from the data. This function uses bootstrapping to obtain the p-value based on	the distribution and parameters.
 }
-

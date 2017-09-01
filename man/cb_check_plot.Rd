@@ -17,4 +17,3 @@ color plot
 \description{
 Create a plot with all colors in a palette, followed by the same figure with protan, deutan, and tritan color deficiency.
 }
-

@@ -21,4 +21,3 @@ gof_results list with KS, AD, and CVM test statistic
 \description{
 Wrapper to generate random samples from a probability distribution and run gof_stats
 }
-

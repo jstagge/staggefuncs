@@ -19,4 +19,3 @@ year year of observation
 \description{
 Reads in a water year and month and calculates the year.
 }
-

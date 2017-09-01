@@ -22,4 +22,3 @@ dl_result a character stating "Success" or "Failure"
 \description{
 Reads in local USGS data file using dataRetreival package.
 }
-

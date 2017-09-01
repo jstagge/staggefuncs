@@ -19,4 +19,3 @@ gof_results list with KS, AD, and CVM test statistic
 \description{
 Calculates goodness of fit statatistics (K-S, AD, and CVM) for a chosen univariate distribution.
 }
-

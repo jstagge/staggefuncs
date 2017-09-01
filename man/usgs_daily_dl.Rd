@@ -19,4 +19,3 @@ dl_result a character stating "Success" or "Failure"
 \description{
 Use the dataRetrieval package to download daily stream flows.
 }
-
