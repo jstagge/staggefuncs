@@ -98,7 +98,16 @@ theme_classic_correct_majgrid <- function(legend_pt=10) {
 	  
 	  
 	  
-
+#' Theme Classic New
+#'
+#' An updated version of theme_classic from ggplot2 using my personal preferences.
+#'
+#' @param legend_pt font size
+#'
+#' @return theme_out theme for ggplot2
+#'
+#'
+#' @export
 theme_classic_new <- function(legend_pt=10) {
 	### Text size is legend_pt * 0.8, axis titles legend_pt*0.9
 	theme_out <- theme_classic(legend_pt)
