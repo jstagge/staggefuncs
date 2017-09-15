@@ -3,6 +3,7 @@
 export(cap_first)
 export(cb_check_plot)
 export(cb_pal)
+export(ggplot_percent_label)
 export(gof_bootstrap)
 export(gof_replicate)
 export(gof_stats)
