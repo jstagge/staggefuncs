@@ -1,4 +1,4 @@
-#' Shift a time series
+#' Shift a time series by a given lag
 #'
 #' Copied from https://www.r-bloggers.com/generating-a-laglead-variables/
 #'
@@ -10,7 +10,7 @@
 #'
 #' @export
 
-shift <-function(x,shift_by){
+shift_bylag <-function(x,shift_by){
     stopifnot(is.numeric(shift_by))
     stopifnot(is.numeric(x))
  
